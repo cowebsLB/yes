@@ -4,42 +4,342 @@ class SkillsPage {
         this.name = 'skills';
         this.skills = {
             frontend: [
-                { name: "HTML5", level: 95, icon: "fab fa-html5", color: "text-orange-500" },
-                { name: "CSS3", level: 90, icon: "fab fa-css3-alt", color: "text-blue-500" },
-                { name: "JavaScript", level: 92, icon: "fab fa-js-square", color: "text-yellow-500" },
-                { name: "React", level: 88, icon: "fab fa-react", color: "text-blue-400" },
-                { name: "Vue.js", level: 85, icon: "fab fa-vuejs", color: "text-green-500" },
-                { name: "TypeScript", level: 80, icon: "fas fa-code", color: "text-blue-600" },
-                { name: "Tailwind CSS", level: 90, icon: "fas fa-palette", color: "text-teal-500" },
-                { name: "SASS/SCSS", level: 85, icon: "fab fa-sass", color: "text-pink-500" }
+                { 
+                    name: "HTML5", 
+                    level: 95, 
+                    icon: "fab fa-html5", 
+                    color: "text-orange-500",
+                    description: "Semantic markup and modern HTML5 features",
+                    experience: "5+ years of experience creating semantic, accessible web structures",
+                    projects: ["Portfolio Website", "E-commerce Platform", "Task Management App"],
+                    relatedSkills: ["CSS3", "JavaScript", "Web Accessibility"],
+                    certifications: ["W3C HTML5 Certification"]
+                },
+                { 
+                    name: "CSS3", 
+                    level: 90, 
+                    icon: "fab fa-css3-alt", 
+                    color: "text-blue-500",
+                    description: "Modern CSS with animations, grid, flexbox, and responsive design",
+                    experience: "5+ years creating responsive, animated interfaces",
+                    projects: ["All Frontend Projects", "Component Libraries", "Animation Showcases"],
+                    relatedSkills: ["SASS", "Tailwind CSS", "CSS Grid", "Flexbox"],
+                    certifications: ["CSS Developer Certification"]
+                },
+                { 
+                    name: "JavaScript", 
+                    level: 92, 
+                    icon: "fab fa-js-square", 
+                    color: "text-yellow-500",
+                    description: "ES6+ features, async programming, and modern JavaScript patterns",
+                    experience: "4+ years of full-stack JavaScript development",
+                    projects: ["SPA Applications", "Node.js APIs", "Interactive Web Apps"],
+                    relatedSkills: ["TypeScript", "Node.js", "React", "Vue.js"],
+                    certifications: ["JavaScript Developer Certification", "ES6 Certification"]
+                },
+                { 
+                    name: "React", 
+                    level: 88, 
+                    icon: "fab fa-react", 
+                    color: "text-blue-400",
+                    description: "Component-based UI development with hooks and context",
+                    experience: "3+ years building scalable React applications",
+                    projects: ["E-commerce Platform", "Dashboard Applications", "Portfolio Sites"],
+                    relatedSkills: ["Redux", "React Router", "Next.js", "Styled Components"],
+                    certifications: ["React Developer Certification"]
+                },
+                { 
+                    name: "Vue.js", 
+                    level: 85, 
+                    icon: "fab fa-vuejs", 
+                    color: "text-green-500",
+                    description: "Progressive framework for building user interfaces",
+                    experience: "2+ years developing Vue.js applications",
+                    projects: ["Task Management System", "Content Management System"],
+                    relatedSkills: ["Vuex", "Vue Router", "Nuxt.js", "Vue CLI"],
+                    certifications: ["Vue.js Developer Certification"]
+                },
+                { 
+                    name: "TypeScript", 
+                    level: 80, 
+                    icon: "fas fa-code", 
+                    color: "text-blue-600",
+                    description: "Strongly typed JavaScript for large-scale applications",
+                    experience: "2+ years using TypeScript in enterprise projects",
+                    projects: ["Enterprise Applications", "API Development", "Large-scale SPAs"],
+                    relatedSkills: ["JavaScript", "Node.js", "React", "Angular"],
+                    certifications: ["TypeScript Developer Certification"]
+                },
+                { 
+                    name: "Tailwind CSS", 
+                    level: 90, 
+                    icon: "fas fa-palette", 
+                    color: "text-teal-500",
+                    description: "Utility-first CSS framework for rapid UI development",
+                    experience: "2+ years using Tailwind for production applications",
+                    projects: ["Portfolio Website", "Dashboard UIs", "Marketing Pages"],
+                    relatedSkills: ["CSS3", "PostCSS", "JIT Compilation", "Custom Components"],
+                    certifications: ["Tailwind CSS Expert"]
+                },
+                { 
+                    name: "SASS/SCSS", 
+                    level: 85, 
+                    icon: "fab fa-sass", 
+                    color: "text-pink-500",
+                    description: "CSS preprocessor with variables, mixins, and functions",
+                    experience: "3+ years using SASS for maintainable stylesheets",
+                    projects: ["Component Libraries", "Design Systems", "Legacy Codebases"],
+                    relatedSkills: ["CSS3", "PostCSS", "BEM Methodology", "CSS Architecture"],
+                    certifications: ["SASS Developer Certification"]
+                }
             ],
             backend: [
-                { name: "Node.js", level: 90, icon: "fab fa-node-js", color: "text-green-500" },
-                { name: "Python", level: 85, icon: "fab fa-python", color: "text-blue-600" },
-                { name: "Express.js", level: 88, icon: "fas fa-server", color: "text-gray-700" },
-                { name: "Django", level: 75, icon: "fas fa-code", color: "text-green-700" },
-                { name: "RESTful APIs", level: 90, icon: "fas fa-exchange-alt", color: "text-blue-500" },
-                { name: "GraphQL", level: 70, icon: "fas fa-project-diagram", color: "text-pink-500" },
-                { name: "JWT", level: 85, icon: "fas fa-key", color: "text-yellow-600" },
-                { name: "Microservices", level: 75, icon: "fas fa-cubes", color: "text-purple-500" }
+                { 
+                    name: "Node.js", 
+                    level: 90, 
+                    icon: "fab fa-node-js", 
+                    color: "text-green-500",
+                    description: "Server-side JavaScript runtime for scalable applications",
+                    experience: "4+ years building APIs and backend services",
+                    projects: ["E-commerce APIs", "Real-time Chat Apps", "Microservices"],
+                    relatedSkills: ["Express.js", "JavaScript", "NPM", "Event Loop"],
+                    certifications: ["Node.js Developer Certification"]
+                },
+                { 
+                    name: "Python", 
+                    level: 85, 
+                    icon: "fab fa-python", 
+                    color: "text-blue-600",
+                    description: "Versatile programming language for web development and automation",
+                    experience: "3+ years using Python for web development and scripting",
+                    projects: ["Django Web Apps", "Data Processing Scripts", "API Development"],
+                    relatedSkills: ["Django", "Flask", "Pandas", "NumPy"],
+                    certifications: ["Python Developer Certification"]
+                },
+                { 
+                    name: "Express.js", 
+                    level: 88, 
+                    icon: "fas fa-server", 
+                    color: "text-gray-700",
+                    description: "Fast, minimalist web framework for Node.js",
+                    experience: "3+ years building RESTful APIs and web applications",
+                    projects: ["REST APIs", "Authentication Systems", "Middleware Development"],
+                    relatedSkills: ["Node.js", "Middleware", "Routing", "Error Handling"],
+                    certifications: ["Express.js Expert Certification"]
+                },
+                { 
+                    name: "Django", 
+                    level: 75, 
+                    icon: "fas fa-code", 
+                    color: "text-green-700",
+                    description: "High-level Python web framework for rapid development",
+                    experience: "2+ years developing Django applications",
+                    projects: ["Content Management Systems", "User Authentication", "Admin Panels"],
+                    relatedSkills: ["Python", "Django REST", "ORM", "Templates"],
+                    certifications: ["Django Developer Certification"]
+                },
+                { 
+                    name: "RESTful APIs", 
+                    level: 90, 
+                    icon: "fas fa-exchange-alt", 
+                    color: "text-blue-500",
+                    description: "Design and implementation of REST architectural principles",
+                    experience: "4+ years designing and building RESTful services",
+                    projects: ["E-commerce APIs", "Social Media APIs", "Data Services"],
+                    relatedSkills: ["HTTP Methods", "Status Codes", "API Documentation", "Postman"],
+                    certifications: ["API Design Certification"]
+                },
+                { 
+                    name: "GraphQL", 
+                    level: 70, 
+                    icon: "fas fa-project-diagram", 
+                    color: "text-pink-500",
+                    description: "Query language for APIs with flexible data fetching",
+                    experience: "1+ year implementing GraphQL endpoints",
+                    projects: ["Modern Web APIs", "Real-time Applications"],
+                    relatedSkills: ["Apollo", "Schema Design", "Resolvers", "Subscriptions"],
+                    certifications: ["GraphQL Developer Certification"]
+                },
+                { 
+                    name: "JWT", 
+                    level: 85, 
+                    icon: "fas fa-key", 
+                    color: "text-yellow-600",
+                    description: "JSON Web Tokens for secure authentication and authorization",
+                    experience: "3+ years implementing JWT-based authentication",
+                    projects: ["User Authentication Systems", "API Security", "SSO Solutions"],
+                    relatedSkills: ["Authentication", "Authorization", "Security", "Sessions"],
+                    certifications: ["Web Security Certification"]
+                },
+                { 
+                    name: "Microservices", 
+                    level: 75, 
+                    icon: "fas fa-cubes", 
+                    color: "text-purple-500",
+                    description: "Architectural pattern for building distributed systems",
+                    experience: "2+ years designing microservice architectures",
+                    projects: ["Enterprise Applications", "Scalable Systems", "Service Orchestration"],
+                    relatedSkills: ["Docker", "Kubernetes", "API Gateway", "Service Mesh"],
+                    certifications: ["Microservices Architecture Certification"]
+                }
             ],
             database: [
-                { name: "MongoDB", level: 85, icon: "fas fa-leaf", color: "text-green-600" },
-                { name: "PostgreSQL", level: 80, icon: "fas fa-database", color: "text-blue-700" },
-                { name: "MySQL", level: 82, icon: "fas fa-database", color: "text-orange-600" },
-                { name: "Redis", level: 75, icon: "fas fa-memory", color: "text-red-500" },
-                { name: "Firebase", level: 78, icon: "fas fa-fire", color: "text-yellow-500" },
-                { name: "Elasticsearch", level: 65, icon: "fas fa-search", color: "text-blue-500" }
+                { 
+                    name: "MongoDB", 
+                    level: 85, 
+                    icon: "fas fa-leaf", 
+                    color: "text-green-600",
+                    description: "NoSQL document database for flexible data storage",
+                    experience: "3+ years using MongoDB for web applications",
+                    projects: ["E-commerce Platforms", "Content Management", "Real-time Apps"],
+                    relatedSkills: ["Mongoose", "Aggregation", "Indexing", "Sharding"],
+                    certifications: ["MongoDB Developer Certification"]
+                },
+                { 
+                    name: "PostgreSQL", 
+                    level: 80, 
+                    icon: "fas fa-database", 
+                    color: "text-blue-700",
+                    description: "Advanced open-source relational database system",
+                    experience: "2+ years using PostgreSQL for complex applications",
+                    projects: ["Enterprise Applications", "Data Analytics", "Financial Systems"],
+                    relatedSkills: ["SQL", "Joins", "Indexes", "Stored Procedures"],
+                    certifications: ["PostgreSQL Administrator Certification"]
+                },
+                { 
+                    name: "MySQL", 
+                    level: 82, 
+                    icon: "fas fa-database", 
+                    color: "text-orange-600",
+                    description: "Popular relational database management system",
+                    experience: "3+ years using MySQL for web applications",
+                    projects: ["Web Applications", "Content Management", "User Systems"],
+                    relatedSkills: ["SQL", "Database Design", "Performance Tuning", "Replication"],
+                    certifications: ["MySQL Developer Certification"]
+                },
+                { 
+                    name: "Redis", 
+                    level: 75, 
+                    icon: "fas fa-memory", 
+                    color: "text-red-500",
+                    description: "In-memory data structure store for caching and real-time apps",
+                    experience: "2+ years using Redis for caching and sessions",
+                    projects: ["Session Management", "Caching Layer", "Real-time Features"],
+                    relatedSkills: ["Caching", "Session Storage", "Pub/Sub", "Data Structures"],
+                    certifications: ["Redis Developer Certification"]
+                },
+                { 
+                    name: "Firebase", 
+                    level: 78, 
+                    icon: "fas fa-fire", 
+                    color: "text-yellow-500",
+                    description: "Google's platform for mobile and web app development",
+                    experience: "2+ years using Firebase for rapid prototyping",
+                    projects: ["Mobile Apps", "Real-time Apps", "Authentication Systems"],
+                    relatedSkills: ["Firestore", "Authentication", "Cloud Functions", "Hosting"],
+                    certifications: ["Firebase Developer Certification"]
+                },
+                { 
+                    name: "Elasticsearch", 
+                    level: 65, 
+                    icon: "fas fa-search", 
+                    color: "text-blue-500",
+                    description: "Distributed search and analytics engine",
+                    experience: "1+ year implementing search functionality",
+                    projects: ["Search Features", "Log Analysis", "Data Analytics"],
+                    relatedSkills: ["Search Queries", "Indexing", "Kibana", "Logstash"],
+                    certifications: ["Elasticsearch Developer Certification"]
+                }
             ],
             tools: [
-                { name: "Git", level: 92, icon: "fab fa-git-alt", color: "text-orange-600" },
-                { name: "Docker", level: 80, icon: "fab fa-docker", color: "text-blue-600" },
-                { name: "AWS", level: 75, icon: "fab fa-aws", color: "text-orange-500" },
-                { name: "VS Code", level: 95, icon: "fas fa-code", color: "text-blue-500" },
-                { name: "Webpack", level: 78, icon: "fas fa-box", color: "text-blue-400" },
-                { name: "Jest", level: 82, icon: "fas fa-vial", color: "text-green-500" },
-                { name: "Postman", level: 88, icon: "fas fa-mail-bulk", color: "text-orange-500" },
-                { name: "Figma", level: 70, icon: "fab fa-figma", color: "text-purple-500" }
+                { 
+                    name: "Git", 
+                    level: 92, 
+                    icon: "fab fa-git-alt", 
+                    color: "text-orange-600",
+                    description: "Distributed version control system for code management",
+                    experience: "5+ years using Git for version control and collaboration",
+                    projects: ["All Development Projects", "Open Source Contributions"],
+                    relatedSkills: ["GitHub", "GitLab", "Branching", "Merging"],
+                    certifications: ["Git Expert Certification"]
+                },
+                { 
+                    name: "Docker", 
+                    level: 80, 
+                    icon: "fab fa-docker", 
+                    color: "text-blue-600",
+                    description: "Containerization platform for application deployment",
+                    experience: "2+ years containerizing applications",
+                    projects: ["Microservices", "Development Environments", "CI/CD Pipelines"],
+                    relatedSkills: ["Containers", "Images", "Compose", "Kubernetes"],
+                    certifications: ["Docker Certified Associate"]
+                },
+                { 
+                    name: "AWS", 
+                    level: 75, 
+                    icon: "fab fa-aws", 
+                    color: "text-orange-500",
+                    description: "Amazon Web Services cloud computing platform",
+                    experience: "2+ years deploying applications on AWS",
+                    projects: ["Cloud Deployments", "Serverless Functions", "Storage Solutions"],
+                    relatedSkills: ["EC2", "S3", "Lambda", "RDS"],
+                    certifications: ["AWS Certified Developer"]
+                },
+                { 
+                    name: "VS Code", 
+                    level: 95, 
+                    icon: "fas fa-code", 
+                    color: "text-blue-500",
+                    description: "Primary code editor with extensions and customizations",
+                    experience: "4+ years as primary development environment",
+                    projects: ["All Development Work", "Custom Configurations"],
+                    relatedSkills: ["Extensions", "Debugging", "IntelliSense", "Git Integration"],
+                    certifications: ["VS Code Power User"]
+                },
+                { 
+                    name: "Webpack", 
+                    level: 78, 
+                    icon: "fas fa-box", 
+                    color: "text-blue-400",
+                    description: "Module bundler for modern JavaScript applications",
+                    experience: "2+ years configuring build processes",
+                    projects: ["SPA Bundling", "Asset Optimization", "Development Tools"],
+                    relatedSkills: ["Module Bundling", "Loaders", "Plugins", "Optimization"],
+                    certifications: ["Webpack Configuration Expert"]
+                },
+                { 
+                    name: "Jest", 
+                    level: 82, 
+                    icon: "fas fa-vial", 
+                    color: "text-green-500",
+                    description: "JavaScript testing framework with mocking and coverage",
+                    experience: "2+ years writing comprehensive test suites",
+                    projects: ["Unit Testing", "Integration Testing", "TDD Projects"],
+                    relatedSkills: ["Unit Testing", "Mocking", "Coverage", "TDD"],
+                    certifications: ["JavaScript Testing Certification"]
+                },
+                { 
+                    name: "Postman", 
+                    level: 88, 
+                    icon: "fas fa-mail-bulk", 
+                    color: "text-orange-500",
+                    description: "API development and testing platform",
+                    experience: "3+ years testing and documenting APIs",
+                    projects: ["API Testing", "Documentation", "Automation"],
+                    relatedSkills: ["API Testing", "Collections", "Automation", "Documentation"],
+                    certifications: ["Postman API Expert"]
+                },
+                { 
+                    name: "Figma", 
+                    level: 70, 
+                    icon: "fab fa-figma", 
+                    color: "text-purple-500",
+                    description: "Collaborative design tool for UI/UX development",
+                    experience: "1+ year creating and implementing designs",
+                    projects: ["UI Design", "Prototyping", "Design Systems"],
+                    relatedSkills: ["UI Design", "Prototyping", "Components", "Collaboration"],
+                    certifications: ["Figma Design Certification"]
+                }
             ]
         };
     }
@@ -147,12 +447,71 @@ class SkillsPage {
                     </div>
                 </div>
                 
-                <!-- Skill Level Text -->
-                <div class="text-center">
+                <!-- Basic info visible by default -->
+                <div class="text-center mb-3">
                     <span class="skill-level-text px-3 py-1 rounded-full text-sm font-medium
                            ${this.getSkillLevelClass(skill.level)}">
                         ${this.getSkillLevelText(skill.level)}
                     </span>
+                </div>
+                
+                ${skill.description ? `<p class="text-gray-600 text-sm mb-3">${skill.description}</p>` : ''}
+                
+                <!-- Collapsible detailed content -->
+                <div class="skill-details hidden" id="skill-details-${category}-${index}">
+                    <div class="border-t border-gray-200 pt-3 mt-3">
+                        ${skill.experience ? `
+                            <div class="mb-3">
+                                <h5 class="text-xs font-semibold text-gray-700 mb-1">Experience:</h5>
+                                <p class="text-gray-600 text-sm">${skill.experience}</p>
+                            </div>
+                        ` : ''}
+                        
+                        ${skill.projects && skill.projects.length > 0 ? `
+                            <div class="mb-3">
+                                <h5 class="text-xs font-semibold text-gray-700 mb-1">Used In:</h5>
+                                <div class="flex flex-wrap gap-1">
+                                    ${skill.projects.map(project => `
+                                        <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">${project}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                        
+                        ${skill.relatedSkills && skill.relatedSkills.length > 0 ? `
+                            <div class="mb-3">
+                                <h5 class="text-xs font-semibold text-gray-700 mb-1">Related Skills:</h5>
+                                <div class="flex flex-wrap gap-1">
+                                    ${skill.relatedSkills.map(related => `
+                                        <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">${related}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                        
+                        ${skill.certifications && skill.certifications.length > 0 ? `
+                            <div class="mb-3">
+                                <h5 class="text-xs font-semibold text-gray-700 mb-1">Certifications:</h5>
+                                <ul class="text-xs text-gray-600 space-y-1">
+                                    ${skill.certifications.map(cert => `
+                                        <li class="flex items-center">
+                                            <i class="fas fa-certificate text-yellow-500 mr-1"></i>
+                                            ${cert}
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+                
+                <!-- Details toggle button -->
+                <div class="text-center mt-3">
+                    <button class="skill-toggle text-blue-600 hover:text-blue-700 font-medium text-xs transition-colors duration-200" 
+                            data-target="skill-details-${category}-${index}">
+                        <span class="toggle-text">View Details</span>
+                        <i class="fas fa-chevron-down ml-1 toggle-icon transition-transform duration-200"></i>
+                    </button>
                 </div>
             </div>
         `).join('');
@@ -272,7 +631,49 @@ class SkillsPage {
         });
     }
 
+    setupEventListeners() {
+        // Skill details toggle functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('skill-toggle') || e.target.closest('.skill-toggle')) {
+                const button = e.target.classList.contains('skill-toggle') ? e.target : e.target.closest('.skill-toggle');
+                const targetId = button.getAttribute('data-target');
+                const detailsElement = document.getElementById(targetId);
+                const toggleText = button.querySelector('.toggle-text');
+                const toggleIcon = button.querySelector('.toggle-icon');
+                
+                if (detailsElement.classList.contains('hidden')) {
+                    // Show details
+                    detailsElement.classList.remove('hidden');
+                    detailsElement.style.opacity = '0';
+                    detailsElement.style.maxHeight = '0';
+                    detailsElement.style.transition = 'all 0.3s ease-out';
+                    
+                    requestAnimationFrame(() => {
+                        detailsElement.style.opacity = '1';
+                        detailsElement.style.maxHeight = '500px';
+                    });
+                    
+                    toggleText.textContent = 'Hide Details';
+                    toggleIcon.style.transform = 'rotate(180deg)';
+                } else {
+                    // Hide details
+                    detailsElement.style.opacity = '0';
+                    detailsElement.style.maxHeight = '0';
+                    
+                    setTimeout(() => {
+                        detailsElement.classList.add('hidden');
+                    }, 300);
+                    
+                    toggleText.textContent = 'View Details';
+                    toggleIcon.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+    }
+
     init() {
+        this.setupEventListeners();
+
         // Add scroll animations for skill categories
         utils.observeElements('.skills-category', (element) => {
             element.style.opacity = '0';

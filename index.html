@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Portfolio</title>
+    <meta name="description" content="Professional portfolio showcasing modern web development projects and skills">
+    <meta name="keywords" content="web developer, portfolio, javascript, react, node.js, full stack">
+    <meta name="author" content="Your Name">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3B82F6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Portfolio">
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=180&h=180&fit=crop&crop=face&auto=format&q=80">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face&auto=format&q=80">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=16&h=16&fit=crop&crop=face&auto=format&q=80">
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script>
@@ -49,40 +68,35 @@
         }
     </script>
     <style>
-        /* Advanced CSS Effects */
-        * {
-            cursor: none; /* Hide default cursor for custom cursor */
-        }
-        
+        /* Optimized CSS Effects for Performance */
         body {
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
         }
         
-        /* Custom Cursor */
-        .custom-cursor {
+        /* Optimized Custom Cursor - reduce complexity */
+        .cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: #3B82F6;
+            border-radius: 50%;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
-            transition: all 0.1s ease;
-        }
-        
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background: #3B82F6;
-            border-radius: 50%;
-            position: absolute;
             transform: translate(-50%, -50%);
+            will-change: transform;
         }
         
         .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 2px solid rgba(59, 130, 246, 0.3);
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
             border-radius: 50%;
-            position: absolute;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
             transform: translate(-50%, -50%);
-            transition: all 0.15s ease;
+            transition: all 0.1s ease;
+            will-change: transform;
         }
         
         .cursor-hover .cursor-outline {
@@ -141,53 +155,52 @@
             left: 100%;
         }
         
-        /* Glitch Effect */
+        /* Optimized Glitch Effect - reduced complexity */
         .glitch-effect {
             position: relative;
         }
         
         .glitch-active {
-            animation: glitch 0.3s ease-in-out;
+            animation: glitch 0.2s ease-in-out;
         }
         
         @keyframes glitch {
-            0% { transform: translateX(0); }
-            20% { transform: translateX(-2px); }
-            40% { transform: translateX(2px); }
-            60% { transform: translateX(-1px); }
-            80% { transform: translateX(1px); }
-            100% { transform: translateX(0); }
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-1px); }
+            75% { transform: translateX(1px); }
         }
         
-        /* Enhanced Navbar */
+        /* Optimized Navbar */
         #navbar {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            will-change: background-color;
         }
         
-        /* Advanced Card Effects */
+        /* Optimized Card Effects */
         .advanced-card {
             background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
         }
         
         .advanced-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
         }
         
-        /* Gradient Text */
+        /* Optimized Gradient Text */
         .gradient-text {
             background: linear-gradient(135deg, #3B82F6, #8B5CF6, #EC4899);
-            background-size: 300%;
+            background-size: 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: gradient 8s ease infinite;
+            animation: gradient 6s ease infinite;
         }
         
         /* Loading Animations */
@@ -255,6 +268,250 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, #2563EB, #7C3AED);
         }
+        
+        /* Dark Mode Styles */
+        .dark-mode {
+            background: #111827;
+            color: #F9FAFB;
+        }
+        
+        .dark-mode nav {
+            background: rgba(17, 24, 39, 0.95) !important;
+            border-bottom: 1px solid #374151;
+        }
+        
+        .dark-mode .nav-link {
+            color: #D1D5DB !important;
+        }
+        
+        .dark-mode .nav-link:hover,
+        .dark-mode .nav-link.text-blue-600 {
+            color: #60A5FA !important;
+        }
+        
+        .dark-mode .bg-white {
+            background: #1F2937 !important;
+        }
+        
+        .dark-mode .text-gray-900 {
+            color: #F9FAFB !important;
+        }
+        
+        .dark-mode .text-gray-700 {
+            color: #D1D5DB !important;
+        }
+        
+        .dark-mode .text-gray-600 {
+            color: #9CA3AF !important;
+        }
+        
+        .dark-mode .bg-gray-50 {
+            background: #111827 !important;
+        }
+        
+        .dark-mode .bg-gray-100 {
+            background: #374151 !important;
+        }
+        
+        .dark-mode .border-gray-300 {
+            border-color: #4B5563 !important;
+        }
+        
+        .dark-mode .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Enhanced Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .animate-slide-in-up {
+            animation: slideInUp 0.6s ease-out;
+        }
+        
+        .animate-fade-in-scale {
+            animation: fadeInScale 0.5s ease-out;
+        }
+        
+        .animate-bounce-in {
+            animation: bounceIn 0.8s ease-out;
+        }
+        
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            padding: 16px 24px;
+            background: #10B981;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.error {
+            background: #EF4444;
+        }
+        
+        /* Loading animations */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        /* 3D Tilt Effects */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+        
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+        }
+        
+        /* Particle Trail */
+        .particle-trail {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #3B82F6, transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 1000;
+        }
+        
+        /* Advanced Typing Animation */
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Glass Morphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Progress Ring Animation */
+        .progress-ring {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        /* Advanced Search Box */
+        .search-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .search-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .search-container:focus-within::before {
+            left: 100%;
+        }
+        
+        /* Image Hover Effects */
+        .image-hover-effect {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .image-hover-effect img {
+            transition: transform 0.3s ease;
+        }
+        
+        .image-hover-effect:hover img {
+            transform: scale(1.1);
+        }
+        
+        .image-hover-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .image-hover-effect:hover::after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -266,11 +523,27 @@
                     <a href="#" class="text-2xl font-bold text-blue-600">Portfolio</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</a>
+                    <a href="#home" class="nav-link text-blue-600 font-semibold transition-colors duration-200">Home</a>
                     <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a>
                     <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-200">Projects</a>
                     <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-200">Skills</a>
                     <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a>
+                    
+                    <!-- Search Feature -->
+                    <div class="search-container relative">
+                        <input type="text" id="global-search" placeholder="Search..." 
+                               class="w-48 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
+                        <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <!-- Search Results Dropdown -->
+                        <div id="search-results" class="absolute top-full left-0 w-full mt-2 bg-white shadow-lg rounded-lg border border-gray-200 hidden z-50 max-h-64 overflow-y-auto">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-200" title="Toggle theme">
+                        <i class="fas fa-moon text-gray-700"></i>
+                    </button>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button class="mobile-menu-button" aria-label="Toggle mobile menu">

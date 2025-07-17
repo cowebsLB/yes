@@ -19,9 +19,11 @@ class HomePage {
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <div class="animate-fade-in animate-on-load">
                         <div class="relative mb-8">
-                            <img src="https://via.placeholder.com/200x200/3B82F6/FFFFFF?text=Your+Photo" 
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format&q=75" 
                                  alt="Profile Picture" 
-                                 class="w-32 h-32 rounded-full mx-auto shadow-2xl border-4 border-white hover-lift animate-glow">
+                                 class="w-32 h-32 rounded-full mx-auto shadow-2xl border-4 border-white hover-lift animate-glow"
+                                 loading="eager"
+                                 decoding="async">
                             <!-- Status indicator -->
                             <div class="absolute bottom-2 right-1/2 transform translate-x-16 w-6 h-6 bg-green-500 rounded-full border-2 border-white animate-pulse-slow"></div>
                         </div>
@@ -169,21 +171,21 @@ class HomePage {
             {
                 title: "E-Commerce Platform",
                 description: "A full-stack e-commerce solution with React and Node.js",
-                image: "https://via.placeholder.com/400x250/3B82F6/FFFFFF?text=E-Commerce",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=200&fit=crop&crop=entropy&auto=format&q=75",
                 tags: ["React", "Node.js", "MongoDB"],
                 gradient: "from-blue-500 to-cyan-500"
             },
             {
                 title: "Task Management App",
                 description: "A collaborative task management tool with real-time updates",
-                image: "https://via.placeholder.com/400x250/10B981/FFFFFF?text=Task+App",
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=200&fit=crop&crop=entropy&auto=format&q=75",
                 tags: ["Vue.js", "Express", "Socket.io"],
                 gradient: "from-green-500 to-emerald-500"
             },
             {
                 title: "Portfolio Website",
                 description: "A responsive portfolio website with modern design",
-                image: "https://via.placeholder.com/400x250/8B5CF6/FFFFFF?text=Portfolio",
+                image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=300&h=200&fit=crop&crop=entropy&auto=format&q=75",
                 tags: ["HTML5", "CSS3", "JavaScript"],
                 gradient: "from-purple-500 to-pink-500"
             }
@@ -195,7 +197,9 @@ class HomePage {
                  style="animation-delay: ${index * 200}ms">
                 <div class="relative overflow-hidden">
                     <img src="${project.image}" alt="${project.title}" 
-                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+                         class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                         loading="lazy"
+                         decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-80 
                               transition-opacity duration-300 flex items-center justify-center">
                         <div class="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -216,7 +220,7 @@ class HomePage {
                         ${project.title}
                     </h3>
                     <p class="text-gray-600 mb-4">${project.description}</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2 mb-4">
                         ${project.tags.map((tag, tagIndex) => `
                             <span class="px-3 py-1 bg-gradient-to-r ${project.gradient} text-white rounded-full text-sm font-medium
                                        transform hover:scale-105 transition-transform duration-200 cursor-pointer"
@@ -224,6 +228,17 @@ class HomePage {
                                 ${tag}
                             </span>
                         `).join('')}
+                    </div>
+                    <div class="flex justify-between items-center mt-auto">
+                        <button class="view-project-btn bg-gradient-to-r ${project.gradient} text-white px-4 py-2 rounded-lg 
+                                     font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200" 
+                                data-project="${project.title}">
+                            View Project
+                        </button>
+                        <button class="project-details-btn text-gray-600 hover:text-gray-800 font-medium" 
+                                data-project="${project.title}">
+                            Details <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -269,6 +284,182 @@ class HomePage {
                 </div>
             </div>
         `).join('');
+    }
+
+    renderProjectModal(projectData) {
+        return `
+            <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4 modal-overlay">
+                <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all duration-300 scale-100">
+                    <!-- Modal Header -->
+                    <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-2xl">
+                        <h2 class="text-2xl font-bold text-gray-900">${projectData.title}</h2>
+                        <button class="close-modal text-gray-500 hover:text-gray-700 text-2xl font-bold transition-colors duration-200">
+                            &times;
+                        </button>
+                    </div>
+                    
+                    <!-- Modal Content -->
+                    <div class="p-6">
+                        <!-- Project Image -->
+                        <div class="mb-6">
+                            <img src="${projectData.image}" alt="${projectData.title}" 
+                                 class="w-full h-64 object-cover rounded-xl shadow-lg">
+                        </div>
+                        
+                        <!-- Project Info -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">About This Project</h3>
+                                <p class="text-gray-600 mb-4">${projectData.fullDescription}</p>
+                                
+                                <h4 class="font-semibold text-gray-900 mb-2">Key Features:</h4>
+                                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                                    ${projectData.features.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">Technical Details</h3>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-semibold text-gray-900 mb-2">Technologies Used:</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        ${projectData.tags.map(tag => `
+                                            <span class="px-3 py-1 bg-gradient-to-r ${projectData.gradient} text-white rounded-full text-sm font-medium">
+                                                ${tag}
+                                            </span>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-semibold text-gray-900 mb-2">Development Time:</h4>
+                                    <p class="text-gray-600">${projectData.duration}</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h4 class="font-semibold text-gray-900 mb-2">Role:</h4>
+                                    <p class="text-gray-600">${projectData.role}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex flex-wrap gap-4 pt-4 border-t border-gray-200">
+                            <button class="bg-gradient-to-r ${projectData.gradient} text-white px-6 py-3 rounded-lg font-semibold 
+                                         hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                                <i class="fas fa-external-link-alt mr-2"></i>View Live Demo
+                            </button>
+                            <button class="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold 
+                                         hover:bg-gray-200 transition-colors duration-200">
+                                <i class="fab fa-github mr-2"></i>View Source Code
+                            </button>
+                            <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold 
+                                         hover:bg-gray-50 transition-colors duration-200">
+                                <i class="fas fa-download mr-2"></i>Case Study PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    showProjectModal(projectTitle) {
+        const projectsData = {
+            "E-Commerce Platform": {
+                title: "E-Commerce Platform",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop&crop=entropy&auto=format&q=80",
+                fullDescription: "A comprehensive full-stack e-commerce solution built with modern web technologies. This platform features user authentication, product catalog management, shopping cart functionality, secure payment processing, and an admin dashboard for inventory management.",
+                features: [
+                    "User authentication and authorization",
+                    "Dynamic product catalog with search and filtering",
+                    "Shopping cart and wishlist functionality",
+                    "Secure payment processing with Stripe integration",
+                    "Order tracking and management system",
+                    "Admin dashboard for inventory management",
+                    "Responsive design for all devices",
+                    "Real-time notifications"
+                ],
+                tags: ["React", "Node.js", "MongoDB", "Express", "Stripe"],
+                gradient: "from-blue-500 to-cyan-500",
+                duration: "3 months",
+                role: "Full-Stack Developer"
+            },
+            "Task Management App": {
+                title: "Task Management App",
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop&crop=entropy&auto=format&q=80",
+                fullDescription: "A collaborative task management application designed for teams to organize, track, and complete projects efficiently. Features real-time collaboration, drag-and-drop interfaces, and comprehensive project analytics.",
+                features: [
+                    "Real-time collaboration with Socket.io",
+                    "Drag-and-drop task organization",
+                    "Project timeline and milestone tracking",
+                    "Team member assignment and notifications",
+                    "File attachments and comments",
+                    "Advanced filtering and search capabilities",
+                    "Custom workflows and automation",
+                    "Detailed analytics and reporting"
+                ],
+                tags: ["Vue.js", "Express", "Socket.io", "PostgreSQL"],
+                gradient: "from-green-500 to-emerald-500",
+                duration: "4 months",
+                role: "Lead Frontend Developer"
+            },
+            "Portfolio Website": {
+                title: "Portfolio Website",
+                image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=400&fit=crop&crop=entropy&auto=format&q=80",
+                fullDescription: "A modern, responsive portfolio website showcasing creative work and technical skills. Built with performance optimization in mind, featuring smooth animations, lazy loading, and progressive web app capabilities.",
+                features: [
+                    "Responsive design with mobile-first approach",
+                    "Smooth scroll animations and transitions",
+                    "Progressive Web App (PWA) functionality",
+                    "Optimized performance and lazy loading",
+                    "Interactive project galleries",
+                    "Contact form with email integration",
+                    "SEO optimization",
+                    "Dark/light theme switching"
+                ],
+                tags: ["HTML5", "CSS3", "JavaScript", "PWA"],
+                gradient: "from-purple-500 to-pink-500",
+                duration: "2 months",
+                role: "UI/UX Designer & Developer"
+            }
+        };
+
+        const projectData = projectsData[projectTitle];
+        if (!projectData) return;
+
+        const modalHTML = this.renderProjectModal(projectData);
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Add event listeners
+        const modal = document.querySelector('.modal-overlay');
+        const closeBtn = document.querySelector('.close-modal');
+        
+        closeBtn.addEventListener('click', () => this.hideProjectModal());
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) this.hideProjectModal();
+        });
+        
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') this.hideProjectModal();
+        });
+        
+        // Animate in
+        requestAnimationFrame(() => {
+            modal.style.opacity = '1';
+        });
+    }
+
+    hideProjectModal() {
+        const modal = document.querySelector('.modal-overlay');
+        if (modal) {
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.remove();
+            }, 300);
+        }
     }
 
     init() {
@@ -386,7 +577,7 @@ class HomePage {
             });
         });
 
-        // About link
+        // About link - "Learn More About Me"
         const aboutLink = document.querySelector('.about-link');
         if (aboutLink) {
             aboutLink.addEventListener('click', () => {
@@ -394,7 +585,7 @@ class HomePage {
             });
         }
 
-        // Projects link
+        // Projects link - "View All Projects"
         const projectsLink = document.querySelector('.projects-link');
         if (projectsLink) {
             projectsLink.addEventListener('click', () => {
@@ -402,13 +593,39 @@ class HomePage {
             });
         }
 
-        // Skills link
+        // Skills link - "View All Skills"
         const skillsLink = document.querySelector('.skills-link');
         if (skillsLink) {
             skillsLink.addEventListener('click', () => {
                 window.dispatchEvent(new CustomEvent('navigate', { detail: 'skills' }));
             });
         }
+
+        // Project card buttons
+        document.addEventListener('click', (e) => {
+            // View Project buttons
+            if (e.target.classList.contains('view-project-btn')) {
+                const projectTitle = e.target.getAttribute('data-project');
+                // Navigate to projects page with specific project highlighted
+                window.dispatchEvent(new CustomEvent('navigate', { 
+                    detail: 'projects',
+                    projectHighlight: projectTitle 
+                }));
+            }
+            
+            // Project Details buttons
+            if (e.target.classList.contains('project-details-btn')) {
+                const projectTitle = e.target.getAttribute('data-project');
+                this.showProjectModal(projectTitle);
+            }
+        });
+
+        // Skill icons click to navigate to skills page
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.skill-icon')) {
+                window.dispatchEvent(new CustomEvent('navigate', { detail: 'skills' }));
+            }
+        });
 
         // Listen for navigation events
         window.addEventListener('navigate', (e) => {
@@ -420,13 +637,192 @@ class HomePage {
     }
 
     downloadCV() {
-        // Create a sample CV download (you can replace with actual CV file)
-        const link = document.createElement('a');
-        link.href = '#'; // Replace with actual CV file path
-        link.download = 'Your_Name_CV.pdf';
-        link.click();
+        // Create a detailed CV download modal instead of just an alert
+        const cvModal = `
+            <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4 cv-modal-overlay">
+                <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl transform transition-all duration-300">
+                    <div class="p-6">
+                        <div class="text-center mb-6">
+                            <div class="mx-auto w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-download text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Download My CV</h3>
+                            <p class="text-gray-600">Choose your preferred format</p>
+                        </div>
+                        
+                        <div class="space-y-3 mb-6">
+                            <button class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg 
+                                         font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 cv-download-btn"
+                                    data-format="pdf">
+                                <i class="fas fa-file-pdf mr-2"></i>Download PDF Version
+                            </button>
+                            <button class="w-full bg-gray-100 text-gray-700 py-3 px-4 rounded-lg font-semibold 
+                                         hover:bg-gray-200 transition-colors duration-200 cv-download-btn"
+                                    data-format="doc">
+                                <i class="fas fa-file-word mr-2"></i>Download DOC Version
+                            </button>
+                            <button class="w-full border border-gray-300 text-gray-700 py-3 px-4 rounded-lg font-semibold 
+                                         hover:bg-gray-50 transition-colors duration-200"
+                                    onclick="window.open('mailto:your.email@example.com?subject=CV%20Request', '_blank')">
+                                <i class="fas fa-envelope mr-2"></i>Request via Email
+                            </button>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button class="close-cv-modal text-gray-500 hover:text-gray-700 font-medium">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
         
-        // Show a message since we don't have an actual CV file
-        alert('CV download functionality - Please replace with your actual CV file path');
+        document.body.insertAdjacentHTML('beforeend', cvModal);
+        
+        // Add event listeners
+        const modal = document.querySelector('.cv-modal-overlay');
+        const closeBtn = document.querySelector('.close-cv-modal');
+        const downloadBtns = document.querySelectorAll('.cv-download-btn');
+        
+        closeBtn.addEventListener('click', () => this.hideCVModal());
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) this.hideCVModal();
+        });
+        
+        downloadBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const format = btn.getAttribute('data-format');
+                this.triggerCVDownload(format);
+            });
+        });
+        
+        // Escape key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') this.hideCVModal();
+        });
+    }
+    
+    hideCVModal() {
+        const modal = document.querySelector('.cv-modal-overlay');
+        if (modal) {
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.remove();
+            }, 300);
+        }
+    }
+    
+    triggerCVDownload(format) {
+        // In a real implementation, you would have actual CV files
+        // For now, we'll create a sample CV content and download it
+        const cvContent = this.generateSampleCV();
+        
+        if (format === 'pdf') {
+            // For PDF, you would typically use a library like jsPDF or link to an actual PDF file
+            this.downloadFile(cvContent, 'Your_Name_CV.txt', 'text/plain');
+            this.showDownloadSuccess('PDF');
+        } else if (format === 'doc') {
+            // For DOC, you would typically link to an actual Word document
+            this.downloadFile(cvContent, 'Your_Name_CV.txt', 'text/plain');
+            this.showDownloadSuccess('DOC');
+        }
+        
+        this.hideCVModal();
+    }
+    
+    generateSampleCV() {
+        return `
+CURRICULUM VITAE
+
+[Your Full Name]
+Web Developer & UI/UX Designer
+
+CONTACT INFORMATION
+Email: your.email@example.com
+Phone: +1 (555) 123-4567
+Location: Your City, State
+Website: yourportfolio.com
+LinkedIn: linkedin.com/in/yourprofile
+GitHub: github.com/yourusername
+
+PROFESSIONAL SUMMARY
+Creative and detail-oriented web developer with 3+ years of experience in building responsive web applications using modern technologies. Passionate about creating user-friendly interfaces and solving complex problems through clean, efficient code.
+
+TECHNICAL SKILLS
+Frontend: HTML5, CSS3, JavaScript (ES6+), React, Vue.js, Tailwind CSS
+Backend: Node.js, Express, Python, PHP
+Databases: MongoDB, PostgreSQL, MySQL
+Tools: Git, Webpack, Docker, AWS, Figma, Adobe Creative Suite
+
+WORK EXPERIENCE
+
+Senior Frontend Developer | TechCorp Inc. (2022 - Present)
+• Developed responsive web applications serving 100k+ users
+• Improved website performance by 40% through optimization techniques
+• Collaborated with cross-functional teams using Agile methodologies
+• Mentored junior developers and conducted code reviews
+
+Frontend Developer | StartupXYZ (2020 - 2022)
+• Built and maintained company website and web applications
+• Implemented modern UI/UX designs with focus on user experience
+• Worked closely with designers to translate mockups into functional interfaces
+• Participated in product planning and feature development
+
+EDUCATION
+Bachelor of Science in Computer Science
+University Name, Year of Graduation
+
+PROJECTS
+• E-Commerce Platform: Full-stack web application with React and Node.js
+• Task Management App: Collaborative tool with real-time features
+• Portfolio Website: Responsive showcase with modern animations
+
+CERTIFICATIONS
+• AWS Certified Developer - Associate
+• Google Analytics Certified
+• Responsive Web Design Certification
+
+LANGUAGES
+English (Native), Spanish (Conversational)
+        `.trim();
+    }
+    
+    downloadFile(content, filename, contentType) {
+        const blob = new Blob([content], { type: contentType });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        link.click();
+        window.URL.revokeObjectURL(url);
+    }
+    
+    showDownloadSuccess(format) {
+        // Create a success notification
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full';
+        notification.innerHTML = `
+            <div class="flex items-center">
+                <i class="fas fa-check-circle mr-2"></i>
+                CV ${format} downloaded successfully!
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+            notification.style.transition = 'transform 0.3s ease-out';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(full)';
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 3000);
     }
 }
